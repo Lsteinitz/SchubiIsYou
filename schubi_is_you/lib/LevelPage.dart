@@ -9,39 +9,66 @@ class LevelPage extends StatefulWidget {
 }
 class _LevelPageState extends State<LevelPage>
 {
+  Expanded leaf = Expanded(child:Image.asset('assets/images/blatt.jpeg',fit: BoxFit.fill), flex:1);
+  Expanded schubert = Expanded(child:Image.asset('assets/images/schubert.jpeg',fit: BoxFit.fill), flex:1);
+  Expanded flower = Expanded(child:Image.asset('assets/images/blume.jpeg',fit: BoxFit.fill), flex:1);
+  Expanded water = Expanded(child:Image.asset('assets/images/wasser.jpeg',fit: BoxFit.fill), flex:1);
+  Expanded earth = Expanded(child:Image.asset('assets/images/erde.jpeg',fit: BoxFit.fill), flex:1);
+
+
   Widget build(BuildContext context) {
-    Alignment moveControllAlignment =  Alignment.centerLeft;
+    Alignment moveControlAlignment =  Alignment.centerLeft;
     MainAxisAlignment mainAxis = MainAxisAlignment.center;
 
     if(MediaQuery.of(context).orientation==Orientation.portrait){
-      moveControllAlignment= Alignment.bottomCenter;
+      moveControlAlignment= Alignment.bottomCenter;
       mainAxis = MainAxisAlignment.end;
     }
 
     return Scaffold(
       //appBar: customAppBar("Level 1"),
       body:  Container(
-       /* decoration: BoxDecoration(
+       decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/grassbackground.jpeg"),
             fit: BoxFit.cover,
             alignment: Alignment.topRight
           )
-        ),*/
+        ),
         child: Center(
           child: Padding(padding: const EdgeInsets.all(10.0),
             child: Column( mainAxisAlignment: mainAxis,
               children: [
-                //grid with kids itself
-                Container(decoration: BoxDecoration(
-                image: DecorationImage(
-                image: AssetImage("assets/images/home.jpeg"),
-                  fit: BoxFit.contain,
-                  alignment: Alignment.center
-                   )//customBoxDecoration("assets/images/schubert.jpeg"),
-                )),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        water, earth,
+                        Expanded(child:Image.asset('assets/images/blatt.jpeg',fit: BoxFit.fill), flex:1),
+                        Expanded(child:Image.asset('assets/images/schubert.jpeg',fit: BoxFit.fill), flex:1),
+                        Expanded(child:Image.asset('assets/images/blume.jpeg',fit: BoxFit.fill), flex:1),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        water, earth,
+                        leaf, schubert, earth
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        flower, schubert, water, earth, leaf
+                      ],
+                    ),
+                  ] //children of column
+                ),
                 //end of grid
-                Container(alignment: moveControllAlignment,
+                Spacer(flex:1),
+                Container(alignment: moveControlAlignment,
                     child: MoveControlButton()
                 )
               ]  //children
