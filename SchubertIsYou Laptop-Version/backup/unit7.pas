@@ -39,11 +39,12 @@ implementation
 {$R *.lfm}
 
 type koordinaten=record
-           x1,y1,feld,posi,s:integer;
+           x1,y1,feld,posi,eigenschaft:integer;
            end;
 type spielfeld=array[1..160] of koordinaten;
 var sf:spielfeld;
-var k,l,n,zaehler,o,count: integer;
+var hedge,leaf,flower,zaehler,water,count: integer;   //eigenschaftsinteger
+
 var   leer, schubert,nschubert, hecke, nhecke, blatt, nblatt,
       nis, nyou, blume, nblume, nstop, npush,nwin ,links,hintergrundspiel,
       schubiene,freundin,feuerwerk,hintergrundgross, ende1,ende2,ende3,ende4,
@@ -53,7 +54,6 @@ var   leer, schubert,nschubert, hecke, nhecke, blatt, nblatt,
 { TForm1 }
 
 procedure TForm6.FormCreate(Sender: TObject);
-var s,i,j:integer;
 begin
   hintergrundspiel:= Tbitmap.create;
  hintergrundspiel.LoadfromFile('hintergrund spiel2.bmp');
@@ -153,7 +153,7 @@ s:=1;
   end;
 end;
  count:=0;
- k:=2; l:=5;  n:=3; o:=18;
+ hedge:=2; leaf:=5;  flower:=3; water:=18;
 
 end;
 
@@ -1192,41 +1192,41 @@ end;
 end;
 end;
 
-procedure regeln(var x,y:integer);
+procedure regeln(var figur,neueEigenschaft:integer);
 var i:integer;
 begin
   for i:=1 to 160 do begin
-    if sf[i].feld=x then begin
-    sf[i].s:=y;
+    if sf[i].feld=figur then begin
+    sf[i].eigenschaft:=neueEigenschaft;
   end;
   end;
 end;
 
 procedure pruefung;
-var i,x,dr,vi,fu,zw:integer;
+var i,x,push,win,stop,dead:integer;
 begin
-  dr:=3; vi:=4; fu:=5;zw:=2;
+  push:=3; win:=4; stop:=5;dead:=2;
   for i:=1 to 160 do begin
-  if sf[i].posi=2 then begin
-  if (sf[i-1].posi=1) and (sf[i+1].posi=3) then begin
+  if sf[i].posi=2 then begin        // mitte von Anweisung = is
+  if (sf[i-1].posi=1) and (sf[i+1].posi=3) then begin   // vollständige anweisung, nur horizontal
    x:=sf[i-1].feld + sf[i+1].feld + sf[i].feld;
     case x of
-     104:regeln(l,dr);
-     134:regeln(n,dr);
-     124:regeln(k,dr);
-     144:regeln(o,dr);
-     110:regeln(l,vi);
-     140:regeln(n,vi);
-     130:regeln(k,vi);
-     150:regeln(o,vi);
-     109:regeln(l,fu);
-     139:regeln(n,fu);
-     129:regeln(k,fu);
-     149:regeln(o,fu);
-     113:regeln(l,zw);
-     143:regeln(n,zw);
-     133:regeln(k,zw);
-     153:regeln(o,zw);
+     104:regeln(leaf,push);
+     134:regeln(flower,push);
+     124:regeln(hedge,push);
+     144:regeln(water,push);
+     110:regeln(leaf,win);
+     140:regeln(flower,win);
+     130:regeln(hedge,win);
+     150:regeln(water,win);
+     109:regeln(leaf,stop);
+     139:regeln(flower,stop);
+     129:regeln(hedge,stop);
+     149:regeln(water,stop);
+     113:regeln(leaf,dead);
+     143:regeln(flower,dead);
+     133:regeln(hedge,dead);
+     153:regeln(water,dead);
 end;
 end;
 end;
@@ -1237,7 +1237,7 @@ procedure pruefungende;
 var i:integer;
 begin
    for i:=1 to 160 do begin
-    sf[i].s:=1;
+    sf[i].eigenschaft:=1;  //keine eigenschaft zugewiesen
    end;
 end;
 
@@ -1263,9 +1263,9 @@ begin
 x:=false;
 case z of
     0:begin  //negative Richtung
-       s:=sf[i-a].s;
-       s2:=sf[i-b].s;
-       s3:=sf[i+c].s;
+       s:=sf[i-a].eigenschaft;
+       s2:=sf[i-b].eigenschaft;
+       s3:=sf[i+c].eigenschaft;
        f:=sf[i-a].feld;
        f2:=sf[i-b].feld;
        f3:=sf[i+c].feld;
@@ -1313,9 +1313,9 @@ case z of
       end;
 
     1:begin  //positve Richtung //gleiche prozedur wie oben, nur für entgegengesetzte richtung
-       s:=sf[i+a].s;
-       s2:=sf[i+b].s;
-       s3:=sf[i-c].s;
+       s:=sf[i+a].eigenschaft;
+       s2:=sf[i+b].eigenschaft;
+       s3:=sf[i-c].eigenschaft;
        f:=sf[i+a].feld;
        f2:=sf[i+b].feld;
        f3:=sf[i-c].feld;
