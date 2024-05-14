@@ -27,24 +27,26 @@ class StartPage extends StatelessWidget
     return MaterialApp(
         theme: ThemeData(primaryColor: Colors.amber),
         home: Scaffold(
-            appBar: customAppBar("Startseite"),
+           // appBar: customAppBar("Startseite"),
             body: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/home.jpg")
+                    image: AssetImage("assets/images/home.jpeg"),
+                    fit: BoxFit.cover,
+                    alignment: Alignment.topRight
                   )
               ),
             child:Center(
               child: Padding(padding: const EdgeInsets.all(8.0),
                 child: Column(
                     children: [
-                      Spacer( flex:3),
+                      Spacer( flex:5),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => LevelPage()));
                         },
-                        child: Text("Level starten", style: TextStyle(fontSize:20 )),
+                        child: Text("Spielen", style: TextStyle(fontSize:20 )),
                           style: ButtonStyle(
                               backgroundColor: MaterialStateColor.resolveWith((states) => Colors.amber)
                           )
@@ -66,12 +68,12 @@ class StartPage extends StatelessWidget
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => CreditPage()));
                         },
-                        child: Text("Mitwirkende", style: TextStyle(fontSize:20 ),),
+                        child: const Text("Mitwirkende", style: TextStyle(fontSize:20 ),),
                           style: ButtonStyle(
                               backgroundColor: MaterialStateColor.resolveWith((states) => Colors.amber)
                           )
                           ),
-                      Spacer(flex:3)
+                      Spacer(flex:1)
                     ]
                 )
               )
