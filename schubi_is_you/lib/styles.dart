@@ -10,3 +10,14 @@ PreferredSizeWidget customAppBar(String text)
   );
 }
 
+BoxDecoration customBoxDecoration(String imagepath)
+{
+  return BoxDecoration(
+      image: DecorationImage(
+          image: AssetImage(imagepath),
+          fit: BoxFit.contain,
+          alignment: Alignment.center
+      )
+  );
+}
+
