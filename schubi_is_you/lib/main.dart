@@ -24,7 +24,18 @@ class StartPage extends StatelessWidget
   @override
   Widget build(BuildContext context)
   {
-    if(MediaQuery.of(context).orientation==Orientation.portrait) {
+    Alignment childAlignment= Alignment.center;
+    Padding childPadding = new Padding(padding: EdgeInsets.all(8.0));
+    Spacer topSpacer = new Spacer(flex: 5);
+    Spacer bottomSpacer = new Spacer(flex: 1);
+    Spacer spacerBetween = new Spacer();
+
+    if(MediaQuery.of(context).orientation==Orientation.landscape) {
+      childAlignment = Alignment.centerLeft;
+      childPadding = new Padding(padding: EdgeInsets.only(left: 100.0));
+      topSpacer= new Spacer(flex:3);
+      bottomSpacer = new Spacer(flex:3);
+    }
       return MaterialApp(
           theme: ThemeData(primaryColor: Colors.amber),
           home: Scaffold(
@@ -37,11 +48,12 @@ class StartPage extends StatelessWidget
                           alignment: Alignment.topRight
                       )
                   ),
-                  child: Center(
-                      child: Padding(padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    alignment: childAlignment,
+                      child: Padding(padding: childPadding.padding,
                           child: Column(
                               children: [
-                                Spacer(flex: 5),
+                                topSpacer,
                                 ElevatedButton(
                                     onPressed: () {
                                       Navigator.push(context,
@@ -56,7 +68,7 @@ class StartPage extends StatelessWidget
                                         Colors.amber)
                                     )
                                 ),
-                                Spacer(flex: 1),
+                                spacerBetween,
                                 ElevatedButton(
                                     onPressed: () {
                                       Navigator.push(context,
@@ -71,7 +83,7 @@ class StartPage extends StatelessWidget
                                         Colors.amber)
                                     )
                                 ),
-                                Spacer(flex: 1),
+                                spacerBetween,
                                 ElevatedButton(
                                     onPressed: () {
                                       Navigator.push(context,
@@ -86,7 +98,7 @@ class StartPage extends StatelessWidget
                                         Colors.amber)
                                     )
                                 ),
-                                Spacer(flex: 1)
+                                bottomSpacer
                               ]
                           )
                       )
@@ -94,79 +106,6 @@ class StartPage extends StatelessWidget
               )
           )
       );
-    }else
-      {
-        return MaterialApp(
-            theme: ThemeData(primaryColor: Colors.amber),
-            home: Scaffold(
-              // appBar: customAppBar("Startseite"),
-                body: Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/home.jpeg"),
-                            fit: BoxFit.cover,
-                            alignment: Alignment.topRight
-                        )
-                    ),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                        child: Padding(padding: const EdgeInsets.only(left:100.0),
-                            child: Column(
-                                children: [
-                                  Spacer(flex: 3),
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(builder: (
-                                                context) => LevelPage()));
-                                      },
-                                      child: Text("Spielen",
-                                          style: TextStyle(fontSize: 20)),
-                                      style: ButtonStyle(
-                                          backgroundColor: MaterialStateColor
-                                              .resolveWith((states) =>
-                                          Colors.amber)
-                                      )
-                                  ),
-                                  Spacer(flex: 1),
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(builder: (
-                                                context) => HowToPage()));
-                                      },
-                                      child: Text("Wie wird gespielt?",
-                                          style: TextStyle(fontSize: 20)),
-                                      style: ButtonStyle(
-                                          backgroundColor: MaterialStateColor
-                                              .resolveWith((states) =>
-                                          Colors.amber)
-                                      )
-                                  ),
-                                  Spacer(flex: 1),
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(builder: (
-                                                context) => CreditPage()));
-                                      },
-                                      child: const Text("Mitwirkende",
-                                        style: TextStyle(fontSize: 20),),
-                                      style: ButtonStyle(
-                                          backgroundColor: MaterialStateColor
-                                              .resolveWith((states) =>
-                                          Colors.amber)
-                                      )
-                                  ),
-                                  Spacer(flex: 3)
-                                ]
-                            )
-                        )
-                    )
-                )
-            )
-        );
-      }
   }
 }
 

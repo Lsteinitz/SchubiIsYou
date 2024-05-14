@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:schubi_is_you/styles.dart';
@@ -37,7 +35,7 @@ class _LevelPageState extends State<LevelPage>
                 //grid with kids itself
                 Container(decoration: BoxDecoration(
                 image: DecorationImage(
-                image: AssetImage("assets/images/schubert.jpeg"),
+                image: AssetImage("assets/images/home.jpeg"),
                   fit: BoxFit.contain,
                   alignment: Alignment.center
                    )//customBoxDecoration("assets/images/schubert.jpeg"),
