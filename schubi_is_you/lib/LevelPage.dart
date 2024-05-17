@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:schubi_is_you/styles.dart';
@@ -16,18 +17,11 @@ class _LevelPageState extends State<LevelPage>
   Expanded earth = Expanded(child:Image.asset('assets/images/erde.jpeg',fit: BoxFit.fill), flex:1);
 
 
-  Widget build(BuildContext context) {
-    Alignment moveControlAlignment =  Alignment.centerLeft;
-    MainAxisAlignment mainAxis = MainAxisAlignment.center;
-
-    if(MediaQuery.of(context).orientation==Orientation.portrait){
-      moveControlAlignment= Alignment.bottomCenter;
-      mainAxis = MainAxisAlignment.end;
-    }
-
+  Widget build(BuildContext context)
+  {
     return Scaffold(
       //appBar: customAppBar("Level 1"),
-      body:  Container(
+      body: Container(
        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/grassbackground.jpeg"),
@@ -37,47 +31,58 @@ class _LevelPageState extends State<LevelPage>
         ),
         child: Center(
           child: Padding(padding: const EdgeInsets.all(10.0),
-            child: Column( mainAxisAlignment: mainAxis,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        water, earth,
-                        Expanded(child:Image.asset('assets/images/blatt.jpeg',fit: BoxFit.fill), flex:1),
-                        Expanded(child:Image.asset('assets/images/schubert.jpeg',fit: BoxFit.fill), flex:1),
-                        Expanded(child:Image.asset('assets/images/blume.jpeg',fit: BoxFit.fill), flex:1),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        water, earth,
-                        leaf, schubert, earth
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        flower, schubert, water, earth, leaf
-                      ],
-                    ),
-                  ] //children of column
-                ),
-                //end of grid
-                Spacer(flex:1),
-                Container(alignment: moveControlAlignment,
-                    child: MoveControlButton()
-                )
-              ]  //children
-            ),
+            child: getChildren(context)
           )
         )
       )
-    );}
+    );
+  }
+
+  GridView createGridView(List<Expanded> field)
+  {
+    return GridView.count(
+        crossAxisCount: 10,
+        children: field
+    );
+  }
+
+  Widget getChildren(BuildContext context)
+  {
+    List<Expanded> spielplan =<Expanded>[ earth, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      water, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      earth, water, schubert, leaf, water, flower, flower, water, leaf, schubert,
+      water, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      earth, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      water, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      earth, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      water, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      earth, water, schubert, leaf, water, earth, flower, water, leaf, schubert,
+      schubert, water, schubert, leaf, water, earth, flower, water, leaf, schubert,];
+
+    if(MediaQuery.of(context).orientation==Orientation.portrait)
+    {
+      return Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisSize: MainAxisSize.min,
+          children: [ Expanded(child: createGridView(spielplan), flex: 2,),
+            Spacer(flex:1),
+             MoveControlButton()
+
+          ]  //children
+      );
     }
+    else{
+      return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [ Expanded(child: createGridView(spielplan), flex: 2,),
+            Spacer(flex:1),
+             MoveControlButton(),
+
+          ]  //children
+      );
+    }
+  }
+}
 
 
 

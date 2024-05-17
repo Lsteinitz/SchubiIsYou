@@ -69,15 +69,13 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       },
     );
 
-    //if phone upwards
-    if(MediaQuery.of(context).orientation== Orientation.portrait ){
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.min,
+
+      return Container (child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           buttonUp,
           Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 buttonLeft,
                 buttonRight
@@ -85,26 +83,9 @@ class _MoveControlButtonState extends State<MoveControlButton> {
           ),
           buttonDown
         ],
-        );
-      }
-      else{
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            buttonLeft,
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                buttonUp,
-                buttonDown
-              ]   //children
-            ),
-            buttonRight
-        ],
-        );
-      }
-  }
+        )
+      );
+     }
 
   void moveUp()
   {
