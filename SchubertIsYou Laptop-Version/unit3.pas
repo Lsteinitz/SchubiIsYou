@@ -327,8 +327,10 @@ case z of
          if (x=true) and (art=0) then begin //art ist die überprüfung ob figur am rand steht, wenn ja darf diese prozedur NICHT durchlaufen werden
           if (s3=3)or(f3=8)or(f3=90)or(f3=110)or(f3=120)or(f3=13)or(f3=14)or(f3=16)
              or(s3=5)or(f3=6)or(f3=3)or(f3=7)or(f3=100)or(f3=16)or(f=17)or(f=130) then exit;
-          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist, kann nicht geschoben werden
-         sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist) und danach die figur mit diesem leeren feld
+          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist,
+                                                                                  //kann nicht geschoben werden
+         sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist)
+                            //und danach die figur mit diesem leeren feld
          f:=sf[i-a].feld;
          sf[i-a].feld:=sf[i].feld;
          sf[i].feld:=f3;
@@ -338,7 +340,8 @@ case z of
          sf[i].posi:=f3;
          end
          else begin
-         sf[i-a].feld:=sf[i].feld;   //falls sich im feld ein objekt befindet wird das objekt mit dem feld davor getauscht(dass zwangsweise leer ist)und dann die figur mit dem leeren feld vor ihm
+         sf[i-a].feld:=sf[i].feld;   //falls sich im feld ein objekt befindet wird das objekt mit dem feld davor getauscht(dass zwangsweise leer ist)
+                                     //und dann die figur mit dem leeren feld vor ihm
          sf[i].feld:=f2;
          sf[i-b].feld:=f;
          sf[i-a].posi:=sf[i].posi;
@@ -425,7 +428,9 @@ case r of
     end;                              //zahl3(in diesem fall irrelevant=0),zahl4(richtung 1=positiv),zahl5(standort),zahl6(in diesem fall irrelevant),zahl7(information über richtung)
     bewegungen(1,2,14,0,i,null,r);    //man bewegt sich ein feld(1) in negative(-)richtung
   end;                                //Zahl1(ein feld wird gezogen),zahl2(ein zu ziehendes feld plus 1),zahl3(damit ein eventuell zu schiebendes objekt, die zu ziehende anzahl der felder kennt)
-   // end;                            //zahl4(richtung 0=negativ),zahl5(standort),zahl6(falls ein obejkt geschoben wird, dass am rand steht, darf die prozedur durchlaufen werden,siehe oben)zahl7(information über richtung)
+   // end;                            //zahl4(richtung 0=negativ),zahl5(standort),zahl6(falls ein obejkt geschoben wird, dass am rand steht, darf die prozedur durchlaufen werden,siehe oben)
+                                      //zahl7(information über richtung)
+
 1:begin //hoch     //gleiches verfahren wie oben,nur andere richtungen,bzw andere felderzahl
     sf[i].feld:=4;                    //randprüfverfahren,für alle richtungen unterschiedlich
     if i<17 then begin
@@ -466,10 +471,10 @@ begin
   pruefung; //legt regeln für zug fest
 
   case key of //eine zahl für jede richtung
-  37: r:=0;
-  38: r:=1;
-  39: r:=2;
-  40: r:=3;
+  37: r:=0;      //links
+  38: r:=1;      //hoch
+  39: r:=2;      //rechts
+  40: r:=3;      //runter
   end;
 
   bewegung(r); //gibt information der richtung an die bewegung weiter

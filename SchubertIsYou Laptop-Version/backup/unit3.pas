@@ -327,7 +327,7 @@ case z of
          if (x=true) and (art=0) then begin //art ist die überprüfung ob figur am rand steht, wenn ja darf diese prozedur NICHT durchlaufen werden
           if (s3=3)or(f3=8)or(f3=90)or(f3=110)or(f3=120)or(f3=13)or(f3=14)or(f3=16)
              or(s3=5)or(f3=6)or(f3=3)or(f3=7)or(f3=100)or(f3=16)or(f=17)or(f=130) then exit;
-          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end;                                                                            //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist, kann nicht geschoben werden
+          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist, kann nicht geschoben werden
          sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist) und danach die figur mit diesem leeren feld
          f:=sf[i-a].feld;
          sf[i-a].feld:=sf[i].feld;
@@ -466,10 +466,10 @@ begin
   pruefung; //legt regeln für zug fest
 
   case key of //eine zahl für jede richtung
-  37: r:=0;
-  38: r:=1;
-  39: r:=2;
-  40: r:=3;
+  37: r:=0;      //links
+  38: r:=1;      //hoch
+  39: r:=2;      //rechts
+  40: r:=3;      //runter
   end;
 
   bewegung(r); //gibt information der richtung an die bewegung weiter

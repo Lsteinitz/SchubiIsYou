@@ -4,8 +4,8 @@ object Form3: TForm3
   Top = 170
   Width = 898
   Caption = 'Form3'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 599
+  ClientWidth = 898
   DesignTimePPI = 120
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
