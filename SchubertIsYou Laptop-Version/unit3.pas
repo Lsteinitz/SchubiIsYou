@@ -36,7 +36,7 @@ implementation
 
 {$R *.lfm}
 type koordinaten=record
-           x1,y1,feld,posi,bild,s:integer;
+           x1,y1,feld,posi,s:integer;
            wahr:boolean;
            end;
 
@@ -161,6 +161,7 @@ form3.image1.picture.bitmap.canvas.draw(sf[18].x1,sf[18].y1,nschubert);
 end;
 end;
 
+//regeln BEREITS ABGEARBEITET (updateRules)
 procedure regeln(var x,y:integer); //hier wird die kennnummer hingegeben
 var i:integer;
 begin
@@ -171,6 +172,7 @@ begin
   end;
 end;
 
+///pruefung BEREITS ABGEARBEITET (checkRules)
 procedure pruefung; //hier wird überprüft ob die 'if' Bedingung also 1:'objekt' 2:'is' 3:'prädikat' erfüllen
 var i,x,dr,vi,fu,zw:integer;
 begin
@@ -179,22 +181,26 @@ begin
   if sf[i].posi=2 then begin                            //falls gefunden
   if (sf[i-1].posi=1) and (sf[i+1].posi=3) then begin   //damit auch die reihenfolge stimmt
    x:=sf[i-1].feld + sf[i+1].feld;                      //werden die nummern der objekte, prädikate addiert, so dass eine spezifische summe entsteht
-    case x of  //die wird hier abgefragt
-     98:regeln(l,dr); //zahl1(objekt),zahl2(eigenschaft)
-     128:regeln(n,dr);
-     118:regeln(k,dr);
-     138:regeln(o,dr);
-     104:regeln(l,vi);
-     134:regeln(n,vi);
-     124:regeln(k,vi);
-     144:regeln(o,vi);
-     103:regeln(l,fu);
-     133:regeln(n,fu);
+     //x = Wert von der Feldnummer eines Wortes, das neben einem is steht + Wert des anderen Wortes neben is
+   case x of  //die wird hier abgefragt
+     98:regeln(l,dr); //zahl1(objekt),zahl2(eigenschaft)  //blattpush
+     128:regeln(n,dr); //blumepush
+     118:regeln(k,dr); //heckepush
+     138:regeln(o,dr); //WasserPush
+
+     104:regeln(l,vi); // BlattWin
+     134:regeln(n,vi); //Blumewin
+     124:regeln(k,vi);  //hekcewin
+     144:regeln(o,vi);  //wasserwin
+
+     103:regeln(l,fu);  //Blattstop
      123:regeln(k,fu);
+     133:regeln(n,fu);
      143:regeln(o,fu);
-     107:regeln(l,zw);
-     137:regeln(n,zw);
+
+     107:regeln(l,zw);  
      127:regeln(k,zw);
+     137:regeln(n,zw);
      147:regeln(o,zw);
      //falls die is bedingung nicht erfüllt ist, entsteht eine zahl für die nichts festgelegt ist, also keine regel tritt in kraft
 end;
@@ -203,6 +209,7 @@ end;
 end;
 end;
 
+///pruefungende BEREITS ABGEARBEITET (resetRules)
 procedure pruefungende; //setzt alle eigenschaften aller objekte auf eins(keine regel)
 var i:integer;
 begin
@@ -368,8 +375,9 @@ case z of
 
         if (s=4) then begin showmessage('Gewonnen'); end;
         if (s=5)or(f=7)or(f=100)or(f=16) then exit;
-         if (s=2) then begin showmessage('Ups...du bist gestorben. Versuch es einfach nochmal!'); sf[i].feld:=1; zeichnen; exit; end;
-        if (s=3)or(f=8)or(f=6)or(f=130)or(f=17)or(f=90)or(f=110)or(f=120)or(f=13)or(f=14)  then begin
+        if (s=2) then begin showmessage('Ups...du bist gestorben. Versuch es einfach nochmal!'); sf[i].feld:=1; zeichnen; exit; end;
+
+         if (s=3)or(f=8)or(f=6)or(f=130)or(f=17)or(f=90)or(f=110)or(f=120)or(f=13)or(f=14)  then begin
          if (s2=5)or(f2=6){or(f2=3)}or(f2=7)or(f2=100)or(f2=16)or(f2=130)or(f2=17)then exit;
          if (s2=3)or(f2=8)or(f2=90)or(f2=110)or(f2=120)or(f2=13)or(f2=14)or(f2=16)then exit;
           if (s2=2) then begin sf[i+a].feld:=sf[i].feld; sf[i].feld:=1; exit;end;
@@ -407,7 +415,7 @@ case z of
 
  end;
 end;
-
+/// bewegung BEREITS ABGEARBEITET (moveX left/right/down/up & get schubiposition)
 procedure bewegung(r: integer); //nutzt die Information über die gedrückte richtungstaste und übersetzt es in die Information,wie viele felder und ob in positive oder negative Richtung gezogen werden soll
 var i,s,null,eins :integer;
 begin

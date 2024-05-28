@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:schubi_is_you/Move.dart';
 
 class MoveControlButton extends StatefulWidget {
   const MoveControlButton({super.key});
@@ -8,8 +9,10 @@ class MoveControlButton extends StatefulWidget {
 }
 
 class _MoveControlButtonState extends State<MoveControlButton> {
+
   @override
   Widget build(BuildContext context) {
+    Move move = new Move(); //Liste des Spielfeldes übergeben
 
     IconButton buttonUp = new IconButton(
         iconSize: 40 ,
@@ -18,7 +21,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
         ),
         icon: const Icon(Icons.arrow_circle_up),
         onPressed: () {
-          moveUp();
+          move.moveUp();
           setState(() {
             //_volume += 10;
           });
@@ -33,7 +36,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_left_outlined),
       onPressed: () {
-        moveLeft();
+        move.moveLeft();
         setState(() {
           //_volume += 10;
         });
@@ -48,7 +51,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_right_outlined),
       onPressed: () {
-        moveRight();
+        move.moveRight();
         setState(() {
           //_volume += 10;
         });
@@ -62,7 +65,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_down),
       onPressed: () {
-        moveDown();
+        move.moveDown();
         setState(() {
           //_volume += 10;
         });
@@ -87,23 +90,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       );
      }
 
-  void moveUp()
-  {
-    print("up");
-  }
 
-  void moveDown()
-  {
-    print("down");
-  }
 
-  void moveLeft()
-  {
-    print("left");
-  }
 
-  void moveRight()
-  {
-    print("right");
-  }
 }

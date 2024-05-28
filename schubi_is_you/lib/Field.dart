@@ -2,28 +2,40 @@ import 'dart:ffi';
 import 'dart:ui';
 import 'package:schubi_is_you/Rules.dart';
 
+///definert das Aussehen eines Feldes
 class Field
 {
     //Koordinaten an dem Bild gezeichnet werden muss
     //int XCoordinate;
     // int yCoordinate;
-  ///Feldnummer, wichtig für Identifizierung des Feldes für Regeln & Bildzeichnung
-  //final int fieldNumber; //feld = Zahlzuordnung des Feldes (siehe Tabelle)
-  //final StringAttribute name;
-  final FieldId fieldId;
-  int wordPosition = 0;  //posi = Position an der Wort stehen muss
-  late Rule property ; //s= Eigenschaft des Feldes
 
-  //push war 3
-  //win war 4
-  //stop war 5
-  //dead war 2
+      ////Feldnummer, wichtig für Identifizierung des Feldes für Regeln & Bildzeichnung
+      //final int fieldNumber; //feld = Zahlzuordnung des Feldes (siehe Tabelle)
+      //final StringAttribute name;
+  late FieldId fieldId;
+  int wordPosition = 0;  //posi = Position an der Wort stehen muss
+  late Property  property; //s= Eigenschaft des Feldes
+
+
 
   Field (this.fieldId); //Erstellt Feld mit Feldnummer
   Field.word(this.fieldId, this.wordPosition);
 
+}//push war 3
+//win war 4
+//stop war 5
+//dead war 2
+enum Property{
+  None(0),
+  Dead(2),
+  Push(3),
+  Win(4),
+  Stop(5);
+  final int propertyValue;
+  const Property(this.propertyValue);
 }
 
+///verknüpft Name eines Feldes mit einem Zahlenwert
 enum FieldId
 {
   //zahlenwerte sind historisch bedingt
@@ -31,6 +43,7 @@ enum FieldId
   Hedge(2),
   Flower(3),
   Schubert(4),
+  Schubertlinks(15),
   Leaf(5),
 
   Is(6),

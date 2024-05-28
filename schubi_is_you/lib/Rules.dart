@@ -1,30 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:schubi_is_you/Field.dart';
 
+///Managed die Regeln, die auf die verschiedenen Felder zutreffen
 class Rules
 {
   late List<Field> game;
-  Rules(BuildContext context,  this.game);
+  Rules(this.game);
 
-  void updateRules(FieldId fieldId, Rule rule)
+  ///wendet die Regeln für die jeweiligen Spielfelder an
+  void updateRules(FieldId fieldId, Property property)
   {
     for(int i=1; i<160; i++)
     {
       if(game[i].fieldId==fieldId)
       {
-        game[i].property=rule;
+        game[i].property=property;
       }
     }
   }
 
+  ///setzt die Regeln für Spielfelder zurück
   void resetRules() //pruefungende
   {
     for(int i=1; i<160; i++)
       {
-        game[i].property=Rule.None;
+        game[i].property=Property.None;
       }
   }
 
+  ///prüft, ob neue Regel erstellt wurde
   void checkRules() //pruefung
   {
     Rule newRule; //RegelNumber ehemals x
@@ -37,25 +41,25 @@ class Rules
           newRule = Rule.fromInt(game[i-1].fieldId.fieldNumber + game[i+1].fieldId.fieldNumber); // Feldnummern werden addiert; Wert legt Regel fest
           switch (newRule)
           {
-            case Rule.LeafPush: updateRules(FieldId.Leaf,newRule);
-            case Rule.LeafDead: updateRules(FieldId.Leaf, newRule);
-            case Rule.LeafStop: updateRules(FieldId.Leaf, newRule);
-            case Rule.LeafWin: updateRules(FieldId.Leaf, newRule);
+            case Rule.LeafPush: updateRules(FieldId.Leaf,Property.Push);
+            case Rule.LeafDead: updateRules(FieldId.Leaf, Property.Dead);
+            case Rule.LeafStop: updateRules(FieldId.Leaf, Property.Stop);
+            case Rule.LeafWin: updateRules(FieldId.Leaf, Property.Win);
 
-            case Rule.HedgePush: updateRules(FieldId.Hedge, newRule);
-            case Rule.HedgeDead: updateRules(FieldId.Hedge, newRule);
-            case Rule.HedgeStop: updateRules(FieldId.Hedge, newRule);
-            case Rule.HedgeWin: updateRules(FieldId.Hedge, newRule);
+            case Rule.HedgePush: updateRules(FieldId.Hedge, Property.Push);
+            case Rule.HedgeDead: updateRules(FieldId.Hedge, Property.Dead);
+            case Rule.HedgeStop: updateRules(FieldId.Hedge, Property.Stop);
+            case Rule.HedgeWin: updateRules(FieldId.Hedge, Property.Win);
 
-            case Rule.FlowerDead: updateRules(FieldId.Flower, newRule);
-            case Rule.FlowerPush: updateRules(FieldId.Flower, newRule);
-            case Rule.FlowerStop: updateRules(FieldId.Flower, newRule);
-            case Rule.FlowerWin: updateRules(FieldId.Flower, newRule);
+            case Rule.FlowerDead: updateRules(FieldId.Flower, Property.Dead);
+            case Rule.FlowerPush: updateRules(FieldId.Flower, Property.Push);
+            case Rule.FlowerStop: updateRules(FieldId.Flower, Property.Stop);
+            case Rule.FlowerWin: updateRules(FieldId.Flower, Property.Win);
 
-            case Rule.WaterDead: updateRules(FieldId.Water, newRule);
-            case Rule.WaterPush: updateRules(FieldId.Water, newRule);
-            case Rule.WaterStop: updateRules(FieldId.Water, newRule);
-            case Rule.WaterWin: updateRules(FieldId.Water, newRule);
+            case Rule.WaterDead: updateRules(FieldId.Water, Property.Dead);
+            case Rule.WaterPush: updateRules(FieldId.Water, Property.Push);
+            case Rule.WaterStop: updateRules(FieldId.Water, Property.Stop);
+            case Rule.WaterWin: updateRules(FieldId.Water, Property.Win);
 
             default: ; //keine Regel zusammengestellt für dieses is
           }
@@ -66,6 +70,7 @@ class Rules
 
 
 }
+///definiert mögliche Regeln und deren numerische Werte
 enum Rule{
   None(0),
   //zahlenwerte sind historisch bedingt -> bestimmte Zahl steht für bestimmte Regel

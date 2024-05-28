@@ -36,7 +36,7 @@ implementation
 
 {$R *.lfm}
 type koordinaten=record
-           x1,y1,feld,posi,bild,s:integer;
+           x1,y1,feld,posi,s:integer;
            wahr:boolean;
            end;
 
@@ -161,6 +161,7 @@ form3.image1.picture.bitmap.canvas.draw(sf[18].x1,sf[18].y1,nschubert);
 end;
 end;
 
+//regeln BEREITS ABGEARBEITET (updateRules)
 procedure regeln(var x,y:integer); //hier wird die kennnummer hingegeben
 var i:integer;
 begin
@@ -171,6 +172,7 @@ begin
   end;
 end;
 
+///pruefung BEREITS ABGEARBEITET (checkRules)
 procedure pruefung; //hier wird überprüft ob die 'if' Bedingung also 1:'objekt' 2:'is' 3:'prädikat' erfüllen
 var i,x,dr,vi,fu,zw:integer;
 begin
@@ -179,22 +181,26 @@ begin
   if sf[i].posi=2 then begin                            //falls gefunden
   if (sf[i-1].posi=1) and (sf[i+1].posi=3) then begin   //damit auch die reihenfolge stimmt
    x:=sf[i-1].feld + sf[i+1].feld;                      //werden die nummern der objekte, prädikate addiert, so dass eine spezifische summe entsteht
-    case x of  //die wird hier abgefragt
-     98:regeln(l,dr); //zahl1(objekt),zahl2(eigenschaft)
-     128:regeln(n,dr);
-     118:regeln(k,dr);
-     138:regeln(o,dr);
-     104:regeln(l,vi);
-     134:regeln(n,vi);
-     124:regeln(k,vi);
-     144:regeln(o,vi);
-     103:regeln(l,fu);
-     133:regeln(n,fu);
+     //x = Wert von der Feldnummer eines Wortes, das neben einem is steht + Wert des anderen Wortes neben is
+   case x of  //die wird hier abgefragt
+     98:regeln(l,dr); //zahl1(objekt),zahl2(eigenschaft)  //blattpush
+     128:regeln(n,dr); //blumepush
+     118:regeln(k,dr); //heckepush
+     138:regeln(o,dr); //WasserPush
+
+     104:regeln(l,vi); // BlattWin
+     134:regeln(n,vi); //Blumewin
+     124:regeln(k,vi);  //hekcewin
+     144:regeln(o,vi);  //wasserwin
+
+     103:regeln(l,fu);  //Blattstop
      123:regeln(k,fu);
+     133:regeln(n,fu);
      143:regeln(o,fu);
-     107:regeln(l,zw);
-     137:regeln(n,zw);
+
+     107:regeln(l,zw);  
      127:regeln(k,zw);
+     137:regeln(n,zw);
      147:regeln(o,zw);
      //falls die is bedingung nicht erfüllt ist, entsteht eine zahl für die nichts festgelegt ist, also keine regel tritt in kraft
 end;
@@ -203,6 +209,7 @@ end;
 end;
 end;
 
+///pruefungende BEREITS ABGEARBEITET (resetRules)
 procedure pruefungende; //setzt alle eigenschaften aller objekte auf eins(keine regel)
 var i:integer;
 begin
@@ -327,8 +334,10 @@ case z of
          if (x=true) and (art=0) then begin //art ist die überprüfung ob figur am rand steht, wenn ja darf diese prozedur NICHT durchlaufen werden
           if (s3=3)or(f3=8)or(f3=90)or(f3=110)or(f3=120)or(f3=13)or(f3=14)or(f3=16)
              or(s3=5)or(f3=6)or(f3=3)or(f3=7)or(f3=100)or(f3=16)or(f=17)or(f=130) then exit;
-          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist, kann nicht geschoben werden
-         sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist) und danach die figur mit diesem leeren feld
+          if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist,
+                                                                                  //kann nicht geschoben werden
+         sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist)
+                            //und danach die figur mit diesem leeren feld
          f:=sf[i-a].feld;
          sf[i-a].feld:=sf[i].feld;
          sf[i].feld:=f3;
@@ -338,7 +347,8 @@ case z of
          sf[i].posi:=f3;
          end
          else begin
-         sf[i-a].feld:=sf[i].feld;   //falls sich im feld ein objekt befindet wird das objekt mit dem feld davor getauscht(dass zwangsweise leer ist)und dann die figur mit dem leeren feld vor ihm
+         sf[i-a].feld:=sf[i].feld;   //falls sich im feld ein objekt befindet wird das objekt mit dem feld davor getauscht(dass zwangsweise leer ist)
+                                     //und dann die figur mit dem leeren feld vor ihm
          sf[i].feld:=f2;
          sf[i-b].feld:=f;
          sf[i-a].posi:=sf[i].posi;
@@ -404,7 +414,7 @@ case z of
 
  end;
 end;
-
+/// bewegung BEREITS ABGEARBEITET (moveX left/right/down/up & get schubiposition)
 procedure bewegung(r: integer); //nutzt die Information über die gedrückte richtungstaste und übersetzt es in die Information,wie viele felder und ob in positive oder negative Richtung gezogen werden soll
 var i,s,null,eins :integer;
 begin
@@ -425,7 +435,9 @@ case r of
     end;                              //zahl3(in diesem fall irrelevant=0),zahl4(richtung 1=positiv),zahl5(standort),zahl6(in diesem fall irrelevant),zahl7(information über richtung)
     bewegungen(1,2,14,0,i,null,r);    //man bewegt sich ein feld(1) in negative(-)richtung
   end;                                //Zahl1(ein feld wird gezogen),zahl2(ein zu ziehendes feld plus 1),zahl3(damit ein eventuell zu schiebendes objekt, die zu ziehende anzahl der felder kennt)
-   // end;                            //zahl4(richtung 0=negativ),zahl5(standort),zahl6(falls ein obejkt geschoben wird, dass am rand steht, darf die prozedur durchlaufen werden,siehe oben)zahl7(information über richtung)
+   // end;                            //zahl4(richtung 0=negativ),zahl5(standort),zahl6(falls ein obejkt geschoben wird, dass am rand steht, darf die prozedur durchlaufen werden,siehe oben)
+                                      //zahl7(information über richtung)
+
 1:begin //hoch     //gleiches verfahren wie oben,nur andere richtungen,bzw andere felderzahl
     sf[i].feld:=4;                    //randprüfverfahren,für alle richtungen unterschiedlich
     if i<17 then begin
