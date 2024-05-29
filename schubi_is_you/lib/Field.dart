@@ -13,7 +13,12 @@ class Field
       //final int fieldNumber; //feld = Zahlzuordnung des Feldes (siehe Tabelle)
       //final StringAttribute name;
   late FieldId fieldId;
-  int wordPosition = 0;  //posi = Position an der Wort stehen muss
+  ///posi = Position an der Wort stehen muss
+  /// wenn 0 -> kein Wort
+  /// 1 -> links
+  /// 2 -> Mitte
+  /// 3 -> rechts
+  int wordPosition = 0;
   late Property  property; //s= Eigenschaft des Feldes
 
 
@@ -60,7 +65,7 @@ enum FieldId
   WordLeaf(90),
   WordSchubert(100),
   WordHedge(110),
-  WordBlume(120),
+  WordFlower(120),
   WordWater(130)
 
   ;

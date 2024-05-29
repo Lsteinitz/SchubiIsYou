@@ -295,13 +295,19 @@ begin
   x:=false; //muss zwingnderweise zu beginn immer falsch sein
   case r of
       0:begin //links
-      y:=(i-a) mod 16;
-      if (y=1)  then x:=true; end;
-      1:begin if ((i-a)<17) then x:=true; end; //hoch
+              y:=(i-a) mod 16;
+              if (y=1)  then x:=true;
+        end;
+      1:begin //hoch
+              if ((i-a)<17) then x:=true;
+        end;
       2:begin //rechts
-      y:=(i+a) mod 16;
-      if (y=0) then  x:=true; end;
-      3:begin if ((i+a)>144) then x:=true; end; //runter
+              y:=(i+a) mod 16;
+              if (y=0) then  x:=true;
+        end;
+      3:begin //runter
+              if ((i+a)>144) then x:=true;
+      end;
   end;
   end;
 
@@ -331,9 +337,11 @@ case z of
 
 
          wahr(i,a,x,r); //prüfung ob schiebbares Obejekt am rand steht
+
          if (x=true) and (art=0) then begin //art ist die überprüfung ob figur am rand steht, wenn ja darf diese prozedur NICHT durchlaufen werden
           if (s3=3)or(f3=8)or(f3=90)or(f3=110)or(f3=120)or(f3=13)or(f3=14)or(f3=16)
              or(s3=5)or(f3=6)or(f3=3)or(f3=7)or(f3=100)or(f3=16)or(f=17)or(f=130) then exit;
+
           if (s3=2) then begin sf[i-a].feld:=sf[i].feld; sf[i].feld:=1;exit; end; //falls an der entsprechenden stelle am anderen spielfeldrand etwas ist,
                                                                                   //kann nicht geschoben werden
          sf[i+c].feld:=f;   //falls das zu schiebende objekt am rand steht, wird das objekt mit dem feld auf der anderen getauscht(dass leer ist)
@@ -375,21 +383,36 @@ case z of
 
         if (s=4) then begin showmessage('Gewonnen'); end;
         if (s=5)or(f=7)or(f=100)or(f=16) then exit;
-         if (s=2) then begin showmessage('Ups...du bist gestorben. Versuch es einfach nochmal!'); sf[i].feld:=1; zeichnen; exit; end;
-        if (s=3)or(f=8)or(f=6)or(f=130)or(f=17)or(f=90)or(f=110)or(f=120)or(f=13)or(f=14)  then begin
-         if (s2=5)or(f2=6){or(f2=3)}or(f2=7)or(f2=100)or(f2=16)or(f2=130)or(f2=17)then exit;
-         if (s2=3)or(f2=8)or(f2=90)or(f2=110)or(f2=120)or(f2=13)or(f2=14)or(f2=16)then exit;
-          if (s2=2) then begin sf[i+a].feld:=sf[i].feld; sf[i].feld:=1; exit;end;
+        if (s=2) then begin showmessage('Ups...du bist gestorben. Versuch es einfach nochmal!'); sf[i].feld:=1; zeichnen; exit; end;
+
+     if (s=3)or(f=6)or(f=8)or(f=13)or(f=14)or(f=17)or(f=90)or(f=110)or(f=120)or(f=130)  then begin  //wenn gepushtes Item oder Wort
+       //Schubi darf nicht mehr als eine Sache auf einmal verschieben, darf nicht schieben, wenn Item hinter geschobenen stop ist
+       if (s2=5)or(f2=6)or(f2=7)or(f2=100)or(f2=16)or(f2=130)or(f2=17)then exit;
+       if (s2=3)or(f2=8)or(f2=90)or(f2=110)or(f2=120)or(f2=13)or(f2=14)or(f2=16)then exit;
+
+        if (s2=2) then begin
+         sf[i+a].feld:=sf[i].feld;
+         sf[i].feld:=1;
+         exit;
+        end;
 
         wahr(i,a,x,r);
          if (x=true) and (art=0) then begin
           if (s3=3)or(f3=8)or(f3=90)or(f3=110)or(f3=120)or(f3=13)or(f3=14)or(f3=16)
              or(s3=5)or(f3=6)or(f3=3)or(f3=7)or(f3=100)or(f3=16)or(f=17)or(f=130) then exit;
-            if (s3=2) then begin sf[i+a].feld:=sf[i].feld; sf[i].feld:=1; exit;end;
+
+          if (s3=2) then begin
+           sf[i+a].feld:=sf[i].feld;
+           sf[i].feld:=1;
+           exit;
+          end;
+
+
          sf[i-c].feld:=f;
          f:=sf[i+a].feld;
          sf[i+a].feld:=sf[i].feld;
          sf[i].feld:=f3;
+
          sf[i-c].posi:=p;
          p:=sf[i+a].posi;
          sf[i+a].posi:=sf[i].posi;
@@ -399,11 +422,12 @@ case z of
          sf[i+a].feld:=sf[i].feld;
          sf[i].feld:=f2;
          sf[i+b].feld:=f;
+
          sf[i+a].posi:=sf[i].posi;
          sf[i].posi:=f2;
          sf[i+b].posi:=p;
          end;
-         end
+        end
         else begin
         sf[i+a].feld:=sf[i].feld;
         sf[i].feld:=f;
