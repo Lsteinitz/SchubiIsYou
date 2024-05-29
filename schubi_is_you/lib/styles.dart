@@ -21,3 +21,11 @@ BoxDecoration customBoxDecoration(String imagepath)
   );
 }
 
+Text customText(String text)
+{
+  return Text(
+    text,
+      style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold, backgroundColor: Colors.amber)
+  );
+}
+
