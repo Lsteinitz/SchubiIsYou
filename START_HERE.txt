@@ -1,6 +1,10 @@
 Dieses Projekt stammt aus der Anfangszeit meiner Programmierlernphase. 
 Deshalb sind einige Variablen und Zahlen so gewählt, wie ich es heute nicht mehr machen würde, jedoch war der Aufwand die gesamten Berechnungen neu zu gestalten zu groß. 
 
+Die gesamte Projektmappe mit dem alten Code ist auf https://github.com/Lsteinitz/SchubiIsYou 
+-> alter Code , pascal, "SchubertIsYou Laptop-Version"
+-> neuer Code , dart,  "schubi_is_you"
+
 So starten bspw. die Arrays nicht bei 0 und auch die for-Schleifen fangen bei 1 an. 
 
 Das Spielfeld ist gedanklich wiefolgt aufgebaut: (die Zahlen stehen für die Stellen im Array)
