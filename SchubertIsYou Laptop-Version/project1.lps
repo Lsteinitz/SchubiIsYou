@@ -19,6 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <CursorPos X="82" Y="27"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,6 +33,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="69"/>
         <CursorPos X="83" Y="116"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -44,9 +46,10 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="80"/>
-        <CursorPos X="32" Y="70"/>
-        <FoldState Value=" T3kZ083 pjNjf0K1]9ekL0r5K"/>
+        <TopLine Value="374"/>
+        <CursorPos X="52" Y="405"/>
+        <FoldState Value=" T3kZ083 pjNjf0K012]BAmX043!"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -59,6 +62,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
         <CursorPos X="68" Y="27"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -72,6 +76,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="6"/>
         <CursorPos X="20" Y="17"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -94,8 +99,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit7"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="1190"/>
-        <CursorPos X="47" Y="157"/>
+        <TopLine Value="49"/>
+        <CursorPos X="144" Y="1340"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

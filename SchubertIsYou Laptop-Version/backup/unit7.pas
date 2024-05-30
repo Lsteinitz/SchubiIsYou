@@ -171,16 +171,16 @@ anfang;
  end;
 
  for i:=1 to 16 do begin
- sf[i].feld:=2;
+ sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
  end;
  for i:=33 to 48 do begin
- sf[i].feld:=2;
+ sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
  end;
  for i:=3 to 9 do begin
  s:=i*16+5;
- sf[s].feld:=2;
+ sf[s].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[s].x1,sf[s].y1,hecke)
  end;
 
@@ -197,15 +197,15 @@ sf[125].posi:=2;
 form6.image1.picture.bitmap.canvas.draw(sf[125].x1,sf[125].y1,nis);
 
 for i:=70 to 71 do begin
-sf[i].feld:=l;
+sf[i].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt)
 end;
 for i:=102 to 103 do begin
-sf[i].feld:=l;
+sf[i].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt)
 end;
 
-sf[87].feld:=l;
+sf[87].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[87].x1,sf[87].y1,blatt);
 sf[99].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[99].x1,sf[99].y1,schubert);
@@ -247,24 +247,24 @@ end;
 s:=1;
 for i:=49 to 96 do begin
 if (i<=54) or ((i>=59) and (i<=64)) or (i>=87)  then begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 end;
 end;
 i:=6;
  while i<54 do begin
- sf[i].feld:=2;
+ sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:=i+16;
  end;
 i:=11;
  while i<59 do begin
- sf[i].feld:=2;
+ sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:=i+16;
  end;                                                   i:=87;
 while i<=151 do begin
- sf[i].feld:=2;
+ sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:=i+16;
  end;
@@ -279,11 +279,11 @@ sf[158].posi:=2;
 form6.image1.picture.bitmap.canvas.draw(sf[158].x1,sf[158].y1,nis);
 
 
-sf[24].feld:=l;
+sf[24].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[24].x1,sf[24].y1,blatt);
 sf[33].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[33].x1,sf[33].y1,schubert);
-sf[121].feld:=3;
+sf[121].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[121].x1,sf[121].y1,blume);
 sf[159].feld:=14;
 sf[159].posi:=3;
@@ -317,24 +317,24 @@ end;
 s:=1;
 for i:=81 to 96 do begin
 if ((i>=81) and (i<=87)) or (i>=94) then begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 end;
 end;
 
 for i:=129 to 144 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 end;
 i:= 7;
 while i<94 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:= i+16;
 end;
 i:=14;
 while i<=87 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
  i:= i+16;
  end;
@@ -348,11 +348,11 @@ sf[123].feld:=6;
 sf[123].posi:=2;
 form6.image1.picture.bitmap.canvas.draw(sf[123].x1,sf[123].y1,nis);
 
-sf[115].feld:=l;
+sf[115].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[115].x1,sf[115].y1,blatt);
 sf[20].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[20].x1,sf[20].y1,schubert);
-sf[26].feld:=3;
+sf[26].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[26].x1,sf[26].y1,blume);
 sf[75].feld:=14;
 sf[75].posi:=3;
@@ -385,12 +385,12 @@ end;
 
 s:=1; i:=7;
 while i< 160 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:= i+16;
 end;  i:=15;
 while i< 160 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:= i+16;
 end;
@@ -407,11 +407,11 @@ sf[116].feld:=6;
 sf[116].posi:=2;
 form6.image1.picture.bitmap.canvas.draw(sf[116].x1,sf[116].y1,nis);
 
-sf[25].feld:=l;
+sf[25].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[25].x1,sf[25].y1,blatt);
 sf[50].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[50].x1,sf[50].y1,schubert);
-sf[124].feld:=3;
+sf[124].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[124].x1,sf[124].y1,blume);
 
 sf[117].feld:=8;
@@ -459,14 +459,14 @@ i:=1;
   14,18,49,78,100,131: i:=i+2;
   end;
 
-  sf[i].feld:=5;
+  sf[i].feld:=leaf;
   form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
 inc(i);
 end;
 
 sf[57].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[57].x1,sf[57].y1,schubert);
-sf[50].feld:=3;
+sf[50].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[50].x1,sf[50].y1,blume);
 
 sf[93].feld:=16;
@@ -511,25 +511,25 @@ then form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,leer);
 end;
 i:=7;
 while i<152 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:=i+16;
 end;
 i:=16;
 while i<=160 do begin
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 i:=i+16;
 end;
 i:=5;
 while i<54 do begin
-sf[i].feld:=5;
+sf[i].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
 i:=i+16;
 end;
 for i:= 9 to 52 do begin
 if (i<12) or ((i>40) and (i<44)) or (i>48) or (i=25) or (i=27) then begin
- sf[i].feld:=5;
+ sf[i].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
 end;
 end;
@@ -548,7 +548,7 @@ form6.image1.picture.bitmap.canvas.draw(sf[109].x1,sf[109].y1,nis);
 
 sf[35].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[35].x1,sf[35].y1,schubert);
-sf[26].feld:=3;
+sf[26].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[26].x1,sf[26].y1,blume);
 sf[91].feld:=14;
 sf[91].posi:=3;
@@ -593,7 +593,7 @@ case i of
 87:i:=i+4;
 47,53,55,69,80,85,101,108,128:i:=i+1;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
@@ -611,13 +611,13 @@ sf[72].posi:=2;
 form6.image1.picture.bitmap.canvas.draw(sf[72].x1,sf[72].y1,nis);
 i:=128;
 while i<159 do begin
-sf[i].feld:=5;
+sf[i].feld:=leaf;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
 i:= i+15;
 end;
 sf[25].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[25].x1,sf[25].y1,schubert);
-sf[160].feld:=3;
+sf[160].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[160].x1,sf[160].y1,blume);
 sf[42].feld:=14;
 sf[42].posi:=3;
@@ -651,13 +651,13 @@ then form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,leer);
 end;
 i:=5;
 while i<150 do begin
-sf[i].feld:=5;
+sf[i].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
  i:=i+16;
 end;
 i:=15;
 while i<160 do begin
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 i:=i+16;
 end;
@@ -669,14 +669,14 @@ case i of
 58,106:i:=i+1;
 62:i:=i+42;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
 i:=58;
 while i<107 do begin
 if i<>90 then begin
- sf[i].feld:=5;
+ sf[i].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt); end;
  i:=i+16;
 end;
@@ -691,7 +691,7 @@ i:=i+16;
  form6.image1.picture.bitmap.canvas.draw(sf[19].x1,sf[19].y1,nis2);
  sf[50].feld:=4;
  form6.image1.picture.bitmap.canvas.draw(sf[50].x1,sf[50].y1,schubert);
- sf[28].feld:=3;
+ sf[28].feld:=flower;
  form6.image1.picture.bitmap.canvas.draw(sf[28].x1,sf[28].y1,blume);
  sf[81].feld:=90;
  sf[81].posi:=1;
@@ -742,7 +742,7 @@ case i of
 78:i:=i+26;
 147:i:=i+8;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
@@ -758,7 +758,7 @@ case i of
 144:i:=i+6;
 152:i:=i+7;
 end;
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 inc(i);
 end;
@@ -780,11 +780,11 @@ form6.image1.picture.bitmap.canvas.draw(sf[114].x1,sf[114].y1,nis2);
 
 sf[145].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[145].x1,sf[145].y1,schubert);
-sf[66].feld:=3;
+sf[66].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[66].x1,sf[66].y1,blume);
-sf[50].feld:=5;
+sf[50].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[50].x1,sf[50].y1,blatt);
- sf[67].feld:=5;
+ sf[67].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[67].x1,sf[67].y1,blatt);
 sf[83].feld:=14;
 sf[83].posi:=3;
@@ -828,7 +828,7 @@ case i of
 7,23,39,55,71:i:=i+10;
 18,34,50,66:i:=i+4;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
@@ -841,7 +841,7 @@ case i of
 122,126:i:=i+3;
 137:i:=i+4;
 end;
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 inc(i);
 end;
@@ -851,7 +851,7 @@ case i of
 48,64:i:=i+13;
 62: i:=i+1;
 end;
-sf[i].feld:=5;
+sf[i].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
  inc(i);
  end;
@@ -873,7 +873,7 @@ form6.image1.picture.bitmap.canvas.draw(sf[19].x1,sf[19].y1,nis2);
 
 sf[35].feld:=4;
 form6.image1.picture.bitmap.canvas.draw(sf[35].x1,sf[35].y1,schubert);
-sf[34].feld:=3;
+sf[34].feld:=flower;
 form6.image1.picture.bitmap.canvas.draw(sf[34].x1,sf[34].y1,blume);
 sf[154].feld:=90;
 sf[154].posi:=1;
@@ -923,7 +923,7 @@ end;
  66:i:=i+11;
  113,137,150: i:=i+2;
  end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
@@ -945,13 +945,13 @@ case i of
  22,38,54,70: i:=i+15;
  97:i:=i+41;
  end;
- sf[i].feld:=18;
+ sf[i].feld:=water;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
  inc(i);
  end;
  sf[114].feld:=4;
  form6.image1.picture.bitmap.canvas.draw(sf[114].x1,sf[114].y1,schubert);
- sf[159].feld:=3;
+ sf[159].feld:=flower;
  form6.image1.picture.bitmap.canvas.draw(sf[159].x1,sf[159].y1,blume);
  sf[68].feld:=14;
  sf[68].posi:=3;
@@ -992,19 +992,19 @@ case i of
 58,73,88,103:i:=i+14;
 118,134:i:=i+15;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
 for i:= 58 to 153 do begin
 if (i<62) or ((i>118) and (i<121)) or ((i>133) and (i<137)) or (i>149)then begin
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 end;
 end;
 i:=61;
 while i<158 do begin
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 i:=i+16;
 end;
@@ -1020,7 +1020,7 @@ case i of
 97,113,129,145:i:=i+10;
 92,108,124,140,156:i:=i+4;
 end;
- sf[i].feld:=5;
+ sf[i].feld:=leaf;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blatt);
  inc(i);
  end;
@@ -1042,7 +1042,7 @@ form6.image1.picture.bitmap.canvas.draw(sf[30].x1,sf[30].y1,nis);
  form6.image1.picture.bitmap.canvas.draw(sf[19].x1,sf[19].y1,nis2);
  sf[114].feld:=4;
  form6.image1.picture.bitmap.canvas.draw(sf[114].x1,sf[114].y1,schubert);
- sf[134].feld:=3;
+ sf[134].feld:=flower;
  form6.image1.picture.bitmap.canvas.draw(sf[134].x1,sf[134].y1,blume);
  sf[29].feld:=90;
  sf[29].posi:=1;
@@ -1087,13 +1087,13 @@ case i of
 89,105,121,129:i:=i+7;
 69:i:=i+11;
 end;
-sf[i].feld:=2;
+sf[i].feld:=hedge;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,hecke);
 inc(i);
 end;
 i:=1;
 while i< 154 do begin
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 if i<145 then i:=i+16  else inc(i);
 end;
@@ -1104,13 +1104,13 @@ case i of
 103,119:i:=i+5;
 109:i:=i+9;
 end;
-sf[i].feld:=18;
+sf[i].feld:=water;
 form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,wasser);
 inc(i);
 end;
 i:=10;
 while i<155 do begin
- sf[i].feld:=3;
+ sf[i].feld:=flower;
  form6.image1.picture.bitmap.canvas.draw(sf[i].x1,sf[i].y1,blume);
  i:=i+16;
 end;
@@ -1130,7 +1130,7 @@ form6.image1.picture.bitmap.canvas.draw(sf[23].x1,sf[23].y1,nis);
  form6.image1.picture.bitmap.canvas.draw(sf[19].x1,sf[19].y1,nis2);
  sf[83].feld:=4;
  form6.image1.picture.bitmap.canvas.draw(sf[83].x1,sf[83].y1,schubert);
- sf[94].feld:=3;
+ sf[94].feld:=flower;
  form6.image1.picture.bitmap.canvas.draw(sf[94].x1,sf[94].y1,blume);
  sf[127].feld:=14;
  sf[127].posi:=3;

@@ -44,9 +44,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="370"/>
-        <CursorPos X="71" Y="385"/>
-        <FoldState Value=" T3kZ08322 pjApA043G"/>
+        <TopLine Value="80"/>
+        <CursorPos X="32" Y="70"/>
+        <FoldState Value=" T3kZ083 pjNjf0K1]9ekL0r5K"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -96,7 +96,6 @@
         <EditorIndex Value="6"/>
         <TopLine Value="1190"/>
         <CursorPos X="47" Y="157"/>
-        <FoldState Value=" T3(E053Z"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -107,28 +106,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1380"/>
         <CursorPos Y="1402"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
       </Unit8>
       <Unit9>
         <Filename Value="F:\unit3.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="769"/>
         <CursorPos X="42" Y="812"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="6"/>
       </Unit9>
       <Unit10>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3931"/>
         <CursorPos Y="3945"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
       </Unit10>
       <Unit11>
         <Filename Value="C:\lazarus\lcl\include\customimage.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="97"/>
         <CursorPos Y="118"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
       </Unit11>
       <Unit12>
         <Filename Value="F:\unit7.pas"/>
@@ -137,7 +136,7 @@
         <TopLine Value="845"/>
         <CursorPos X="25" Y="838"/>
         <FoldState Value=" T3i70Z11 p0xR08312 pj2mX03[947jG04 T0jT2{1081818151j"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
       </Unit12>
       <Unit13>
         <Filename Value="W:\Lui bish\unit7.pas"/>
@@ -146,7 +145,7 @@
         <TopLine Value="776"/>
         <CursorPos X="57" Y="816"/>
         <FoldState Value=" T0kc2!06161613141%"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="1"/>
       </Unit13>
       <Unit14>
         <Filename Value="W:\Lui bish\Projekt 12 2 stone version\unit1.pas"/>
@@ -154,7 +153,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="227"/>
         <CursorPos X="28" Y="239"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="8"/>
       </Unit14>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">

@@ -30,6 +30,8 @@ class Move
     {
       if((game[i].fieldId== FieldId.Schubert) || (game[i].fieldId == FieldId.Schubertlinks))
       {
+        print("schubi at ");
+        print(i);
         return i;
       }
     }

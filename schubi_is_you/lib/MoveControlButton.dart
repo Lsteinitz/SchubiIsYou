@@ -23,7 +23,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
         ),
         icon: const Icon(Icons.arrow_circle_up),
         onPressed: () {
-          gameController.moveUp;
+          gameController.moveUp();
           setState(() { });
         }
       );
@@ -36,7 +36,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_left_outlined),
       onPressed: () {
-        gameController.moveLeft;
+        gameController.moveLeft();
         setState(() { });
       },
     );
@@ -49,7 +49,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_right_outlined),
       onPressed: () {
-        gameController.moveRight;
+        gameController.moveRight();
         setState(() { });
       },
     );
@@ -61,7 +61,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_down),
       onPressed: () {
-        gameController.moveDown;
+        gameController.moveDown();
         setState(() {});
       },
     );
