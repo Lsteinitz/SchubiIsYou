@@ -82,23 +82,24 @@ class Level
     startgame[19]=Field.word(FieldId.Is2,2);
     startgame[20]=Field.word(FieldId.You,3);
 
-    startgame[130]=Field.word(FieldId.Leaf,1);
+    startgame[130]=Field.word(FieldId.WordLeaf,1);
     startgame[131]=Field.word(FieldId.Is,2);
     startgame[132]=Field.word(FieldId.Push,3);
 
-    startgame[29]=Field.word(FieldId.Hedge,1);
+    startgame[29]=Field.word(FieldId.WordHedge,1);
     startgame[30]=Field.word(FieldId.Is,2);
     startgame[31]=Field.word(FieldId.Stop,3);
 
-    startgame[110]=Field.word(FieldId.Flower,1);
-    startgame[142]=Field.word(FieldId.Is,2);
-    startgame[143]=Field.word(FieldId.Win,3);
+    startgame[59]=Field.word(FieldId.WordFlower,1);
+    startgame[60]=Field.word(FieldId.Is,2);
+    startgame[77]=Field.word(FieldId.Win,3);
 
  // Items
     startgame[70]=Field(FieldId.Schubert);
     startgame[56]=Field(FieldId.Leaf);
     startgame[72]=Field(FieldId.Leaf);
     startgame[88]=Field(FieldId.Leaf);
+    startgame[91]=Field(FieldId.Flower);
 
     for(int i=38 ;i< 43;i++)
     {

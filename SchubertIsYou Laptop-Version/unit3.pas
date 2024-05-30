@@ -406,8 +406,6 @@ case z of
            sf[i].feld:=1;
            exit;
           end;
-
-
          sf[i-c].feld:=f;
          f:=sf[i+a].feld;
          sf[i+a].feld:=sf[i].feld;

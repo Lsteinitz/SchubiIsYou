@@ -1,5 +1,4 @@
-import 'dart:html';
-import 'dart:js';
+
 
 import 'package:flutter/material.dart';
 import 'package:schubi_is_you/LevelPage.dart';
@@ -41,7 +40,7 @@ class StartPage extends StatelessWidget
           home: Scaffold(
             // appBar: customAppBar("Startseite"),
               body: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/images/home.jpeg"),
                           fit: BoxFit.cover,

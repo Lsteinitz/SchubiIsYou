@@ -288,7 +288,7 @@ begin
   k:=2; l:=5;  n:=3; o:=18;
 
 end;
-
+///wahr BEREITS ABGEARBEITET (OnBorder)
 procedure wahr(i,a:integer; var x:boolean; var r:integer); //test, ob objekt am rand steht
 var y:integer;
 begin
@@ -310,7 +310,7 @@ begin
       end;
   end;
   end;
-
+///bewegungen BEREITS ABGEARBEITET (move)
 procedure bewegungen(a,b,c,z:integer; var i,art,r: integer); //hier findet die eigentliche bewegung statt
 var f,f2,s,p,s2,s3,f3:integer;
 var x:boolean;

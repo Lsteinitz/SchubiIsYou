@@ -101,9 +101,7 @@ class Move
 
     if(isPositiveDirection)
     {
-      nextField= game[position+stepsToNextField];
-      nextNextField= game[position+stepsNextNextField];
-      field3= game[position-zahl3];
+
     }
     else
     {
@@ -112,13 +110,16 @@ class Move
       field3= game[position+zahl3];
     }
 
+    nextField= game[position+stepsToNextField];
+    nextNextField= game[position+stepsNextNextField];
+    field3= game[position-zahl3];
+
     if(nextField.property== Property.Win) print("gewonnen");
     if((nextField.property==Property.Stop)||(nextField.fieldId== FieldId.You)||(nextField.fieldId== FieldId.Is2)||(nextField.fieldId == FieldId.WordSchubert)) return;
     if(nextField.property==Property.Dead)
     {
       print("Ups... du bist gestorben, Versuche es einfach nochmal!");
       game[position].fieldId=FieldId.Earth;
-      //Zeichnen aufrufen / restart
       return;
     }
 
@@ -129,20 +130,10 @@ class Move
       //Verschieben eines Objektes in ein anderes was "dead" ist -> hineingeschobenes Item wird gelöscht
       if(nextNextField.property== Property.Dead)
       {
-        if(isPositiveDirection)
-        {
-          game[position + stepsToNextField] = game[position];
-          game[position]= Field(FieldId.Earth);
-          return; //keine weiteren Verschiebungen müssen ausgeführt werden
-        }
-        else
-        {
-          game[position - stepsToNextField] = game[position];
-          game[position]= Field(FieldId.Earth);
-          return; //keine weiteren Verschiebungen müssen ausgeführt werden
-        }
+        game[position + stepsToNextField] = game[position];
+        game[position]= Field(FieldId.Earth);
+        return; //keine weiteren Verschiebungen müssen ausgeführt werden
       }
-
       isItemOnBorder = OnBorder(position, stepsToNextField, direction);
       if((isItemOnBorder)&& (!isNextFieldNotEmpty))
       {
