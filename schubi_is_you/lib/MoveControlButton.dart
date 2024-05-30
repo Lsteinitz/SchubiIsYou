@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:schubi_is_you/GameController.dart';
 import 'package:schubi_is_you/Move.dart';
 
 class MoveControlButton extends StatefulWidget {
-  const MoveControlButton({super.key});
 
+  MoveControlButton(this.gameController);
+  late GameController gameController;
   @override
-  State<MoveControlButton> createState() => _MoveControlButtonState();
+  State<MoveControlButton> createState() => _MoveControlButtonState(this.gameController);
 }
 
 class _MoveControlButtonState extends State<MoveControlButton> {
-
+  _MoveControlButtonState(this.gameController);
+  late GameController gameController;
   @override
   Widget build(BuildContext context) {
-    Move move = new Move(); //Liste des Spielfeldes übergeben
 
-    IconButton buttonUp = new IconButton(
+    IconButton buttonUp = IconButton(
         iconSize: 40 ,
         style: ButtonStyle(
           backgroundColor: MaterialStateColor.resolveWith((states) => Colors.amber)
         ),
         icon: const Icon(Icons.arrow_circle_up),
         onPressed: () {
-          move.moveUp();
-          setState(() {
-            //_volume += 10;
-          });
+          gameController.moveUp;
+          setState(() { });
         }
       );
 
-    IconButton buttonLeft = new IconButton(
+    IconButton buttonLeft =  IconButton(
       alignment: Alignment.centerLeft,
       iconSize: 40 ,
       style: ButtonStyle(
@@ -36,14 +36,12 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_left_outlined),
       onPressed: () {
-        move.moveLeft();
-        setState(() {
-          //_volume += 10;
-        });
+        gameController.moveLeft;
+        setState(() { });
       },
     );
 
-   IconButton buttonRight= new IconButton(
+   IconButton buttonRight= IconButton(
       alignment: Alignment.centerRight,
       iconSize: 40 ,
       style: ButtonStyle(
@@ -51,29 +49,25 @@ class _MoveControlButtonState extends State<MoveControlButton> {
       ),
       icon: const Icon(Icons.arrow_circle_right_outlined),
       onPressed: () {
-        move.moveRight();
-        setState(() {
-          //_volume += 10;
-        });
+        gameController.moveRight;
+        setState(() { });
       },
     );
 
-   IconButton buttonDown= new IconButton(
+   IconButton buttonDown= IconButton(
       iconSize: 40 ,
       style: ButtonStyle(
           backgroundColor: MaterialStateColor.resolveWith((states) => Colors.amber)
       ),
       icon: const Icon(Icons.arrow_circle_down),
       onPressed: () {
-        move.moveDown();
-        setState(() {
-          //_volume += 10;
-        });
+        gameController.moveDown;
+        setState(() {});
       },
     );
 
 
-      return Container (child: Column(
+      return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           buttonUp,
@@ -86,8 +80,7 @@ class _MoveControlButtonState extends State<MoveControlButton> {
           ),
           buttonDown
         ],
-        )
-      );
+        );
      }
 
 
