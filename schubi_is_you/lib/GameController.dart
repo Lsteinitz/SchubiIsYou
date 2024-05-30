@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:schubi_is_you/Level.dart';
 import 'package:schubi_is_you/Move.dart';
+import 'package:schubi_is_you/Rules.dart';
 
 import 'Field.dart';
 
@@ -12,6 +13,7 @@ class GameController
   }
   late Level level = Level();
   late Move initialMove = getMove() ;
+  late Rules rules = getRules();
   late ValueNotifier<List<Field>> viewNotifier = ValueNotifier<List<Field>>(level.game);
 
   Move getMove()
@@ -20,6 +22,11 @@ class GameController
     return Move(level.game);
   }
 
+  Rules getRules()
+  {
+    level.InitializeList();
+    return Rules(level.game);
+  }
  /*late GridView gamePlan = createGridView();
 
  GridView createGridView() {
@@ -56,10 +63,27 @@ class GameController
 
  void moveUp()
  {
+   rules.checkRules();
    initialMove.moveUp();
+   rules.resetRules();
    viewNotifier.value= initialMove.game;
  }
- void moveDown(){initialMove.moveDown();viewNotifier.value= initialMove.game;}
- void moveLeft(){initialMove.moveLeft();viewNotifier.value= initialMove.game;}
- void moveRight(){initialMove.moveRight();viewNotifier.value= initialMove.game;}
+ void moveDown(){
+   rules.checkRules();
+   initialMove.moveDown();
+   rules.resetRules();
+   viewNotifier.value= initialMove.game;
+ }
+ void moveLeft(){
+   rules.checkRules();
+   initialMove.moveLeft();
+   rules.resetRules();
+   viewNotifier.value= initialMove.game;
+ }
+ void moveRight(){
+   rules.checkRules();
+   initialMove.moveRight();
+   rules.resetRules();
+   viewNotifier.value= initialMove.game;
+ }
 }
