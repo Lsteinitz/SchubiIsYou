@@ -9,8 +9,8 @@ class CreditPage extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/images/credits.jpeg"),
-                    fit: BoxFit.cover,
-                    alignment: Alignment.topRight
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment.topCenter
                 )
             ),
         )
